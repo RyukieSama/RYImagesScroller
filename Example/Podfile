@@ -6,8 +6,6 @@ inhibit_all_warnings!
 
 target 'DEMO_Example' do
 
-#pod 'libwebp', :git => 'http://192.168.30.6/shengming.han/libwebp.git'
-#pod 'BFImagesScrollView', :path => '/Users/rongqingwang/BFImagesScrollView'
 pod  'Masonry'
 pod 'SDWebImage'
 
