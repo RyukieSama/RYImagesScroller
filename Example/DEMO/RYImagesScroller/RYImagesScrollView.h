@@ -81,5 +81,6 @@ typedef NS_ENUM(NSInteger, RYImageScrollerPageStyle) {
  *  每次滚动完的回调
  */
 @property (nonatomic, copy) ImageScrollHandler handler_scrollCallBack;
+@property (nonatomic, assign) NSInteger scrollToPage;
 
 @end

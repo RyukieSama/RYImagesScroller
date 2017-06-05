@@ -156,6 +156,16 @@ static NSString *videoID = @"imageCellWithVideo";
     }
 }
 
+- (void)setScrollToPage:(NSInteger)scrollToPage {
+    if (self.imageURLs.count < 2) {
+        return;
+    }
+    _scrollToPage = scrollToPage;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:scrollToPage inSection:1];
+    [self.cv_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:0 animated:NO];
+    self.currentIndex = scrollToPage;
+}
+
 #pragma mark - Timer
 - (void)setupTimer {
     if (self.imageURLs.count <= 1) {

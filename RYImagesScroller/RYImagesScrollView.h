@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, RYImageScrollerPageStyle) {
 
 /**
  初始化方法   并设置分页样式
-
+ 
  @param style 分页样式
  */
 - (instancetype)initWithFrame:(CGRect)frame pageStyle:(RYImageScrollerPageStyle)style;
@@ -81,5 +81,9 @@ typedef NS_ENUM(NSInteger, RYImageScrollerPageStyle) {
  *  每次滚动完的回调
  */
 @property (nonatomic, copy) ImageScrollHandler handler_scrollCallBack;
+/**
+ 指定当前位置
+ */
+@property (nonatomic, assign) NSInteger scrollToPage;
 
 @end

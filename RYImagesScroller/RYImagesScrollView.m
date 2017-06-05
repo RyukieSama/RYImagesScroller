@@ -89,11 +89,11 @@ static NSString *videoID = @"imageCellWithVideo";
         make.edges.mas_equalTo(0);
     }];
     if (self.pageStyle == RYImageScrollerPageStyleCustom) {
-//        [self addSubview:self.pageControl];
-//        [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.centerX.mas_equalTo(0);
-//            make.bottom.mas_equalTo(-12);
-//        }];
+        //        [self addSubview:self.pageControl];
+        //        [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.centerX.mas_equalTo(0);
+        //            make.bottom.mas_equalTo(-12);
+        //        }];
     } else {
         [self addSubview:self.sysPageControl];
         [self.sysPageControl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -154,6 +154,16 @@ static NSString *videoID = @"imageCellWithVideo";
     } else {
         self.sysPageControl.currentPage = currentIndex;
     }
+}
+
+- (void)setScrollToPage:(NSInteger)scrollToPage {
+    if (self.imageURLs.count < 2) {
+        return;
+    }
+    _scrollToPage = scrollToPage;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:scrollToPage inSection:1];
+    [self.cv_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:0 animated:NO];
+    self.currentIndex = scrollToPage;
 }
 
 #pragma mark - Timer
