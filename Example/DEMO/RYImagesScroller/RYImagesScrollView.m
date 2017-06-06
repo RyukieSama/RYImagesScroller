@@ -89,11 +89,11 @@ static NSString *videoID = @"imageCellWithVideo";
         make.edges.mas_equalTo(0);
     }];
     if (self.pageStyle == RYImageScrollerPageStyleCustom) {
-//        [self addSubview:self.pageControl];
-//        [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.centerX.mas_equalTo(0);
-//            make.bottom.mas_equalTo(-12);
-//        }];
+        //        [self addSubview:self.pageControl];
+        //        [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.centerX.mas_equalTo(0);
+        //            make.bottom.mas_equalTo(-12);
+        //        }];
     } else {
         [self addSubview:self.sysPageControl];
         [self.sysPageControl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,7 +116,9 @@ static NSString *videoID = @"imageCellWithVideo";
         self.cv_collectionView.scrollEnabled = NO;
     } else {
         [self invalidateTimer];
-        [self setupTimer];
+        if (self.autoScrollTimeInterval > 0) {
+            [self setupTimer];
+        }
         self.cv_collectionView.scrollEnabled = YES;
     }
     [self.cv_collectionView reloadData];
@@ -168,7 +170,7 @@ static NSString *videoID = @"imageCellWithVideo";
 
 #pragma mark - Timer
 - (void)setupTimer {
-    if (self.imageURLs.count <= 1) {
+    if (self.imageURLs.count <= 1 || self.autoScrollTimeInterval <= 0) {
         return;
     }
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.autoScrollTimeInterval

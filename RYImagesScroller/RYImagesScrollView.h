@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, RYImageScrollerPageStyle) {
 @property (nonatomic, strong) NSArray <UIView *> *attachViewArr;
 @property (nonatomic, strong) UICollectionView *cv_collectionView;
 /**
- *  滚动时间间隔   默认2s
+ *  滚动时间间隔 0s不滚动
  */
 @property (nonatomic, assign) CGFloat autoScrollTimeInterval;
 /**
